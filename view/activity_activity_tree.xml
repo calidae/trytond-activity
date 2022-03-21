@@ -15,4 +15,5 @@ contains the full copyright notices and license terms. -->
     <button name="plan" tree_invisible="1"/>
     <button name="do" tree_invisible="1"/>
     <button name="cancel" tree_invisible="1"/>
+      <field name="company"/>
 </tree>
