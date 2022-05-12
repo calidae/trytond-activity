@@ -503,7 +503,15 @@ class Activity(Workflow, ModelSQL, ModelView):
 
     @fields.depends('employee')
     def on_change_with_company(self, name=None):
-        return self.employee.company.id if self.employee and self.employee.company else None
+        User = Pool().get('res.user')
+
+        employee = self.employee
+        if not employee:
+            user = User(Transaction().user)
+            employee = user.employee
+
+        return (self.employee.company.id
+            if self.employee and self.employee.company else None)
 
     @classmethod
     def search_company(cls, name, clause):
