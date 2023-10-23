@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "calidae-activity"
+dependencies = [
+    "pytz",
+    "trytond-company~=6.8.0",
+]
+version = "6.8"
+
+dynamic = ["classifiers", "license", "readme", "description"]
+
+[project.entry-points."trytond.modules"]
+activity = "trytond.modules.activity"
+
+[project.scripts]
+[project.gui-scripts]
